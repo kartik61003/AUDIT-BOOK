@@ -1,0 +1,15 @@
+
+<?php
+require("../includes/database_connect.php");
+
+$sql = "SELECT * FROM requests";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+echo " <table border = '1'>";
+echo "<tr><td>Request_ID</td><td>Teacher ID</td><td>Date</td><td>Time From</td><td>Time to</td><td>Status</td></tr>";
+while($row=mysqli_fetch_assoc($result)){
+    echo "<tr><td>{$row['idrequests']}</td><td>{$row['ReqTeacherid']}</td><td>{$row['date']}</td><td>{$row['timeFrom']}</td><td>{$row['timeTo']}</td><td>{$row['Status']}</td></tr>";
+}
+echo"</table>";
+?>
